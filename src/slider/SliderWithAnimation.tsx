@@ -52,7 +52,6 @@ class SliderWithAnimation extends React.Component<
             watchProp={currData.id}
             direction={direction}
             childProps={carouselCompProps}
-            classes={null}
             childStyles={childStyles}
           >
             <SingleElement {...carouselCompProps} />
