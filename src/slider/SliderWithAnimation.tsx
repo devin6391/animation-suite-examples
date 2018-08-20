@@ -6,7 +6,7 @@ import SingleElement from "./SingleElement";
 import { carouselComponentStyles } from "./styles";
 import { ICarouselData } from "./AppBar";
 import { carouselElemHeight, carouselElemWidth } from "./singleElemStyles";
-import { ISliderChildStyles, Slider } from "react-animation-suite";
+import { ISliderChildStyles, Slider, ISliderDirection } from "react-animation-suite";
 
 const childStyles: ISliderChildStyles = {
   height: carouselElemHeight,
@@ -19,7 +19,7 @@ interface ISliderWithAnimationProps {
 }
 
 interface ISliderWithAnimationStates {
-  direction: number;
+  direction: ISliderDirection;
   selectedIndex: number;
 }
 
@@ -74,7 +74,7 @@ class SliderWithAnimation extends React.Component<
       throw Error(`Current Index of element can't go below 0`);
     }
     this.setState({
-      direction: 1,
+      direction: ISliderDirection.MoveRight,
       selectedIndex,
     });
   }
@@ -90,7 +90,7 @@ class SliderWithAnimation extends React.Component<
       throw Error(`Current Index of element can't go beyond ${maxIndex}`);
     }
     this.setState({
-      direction: 0,
+      direction: ISliderDirection.MoveLeft,
       selectedIndex,
     });
   }
