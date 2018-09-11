@@ -3,38 +3,37 @@ import { StyleSheet } from "react-jss";
 export const appBarStyles: StyleSheet<any> = {
   root: {
     backgroundColor: "#bebebe",
-    width: "100vw",
-  },
+    width: "100vw"
+  }
 };
 
 const carouselArrowStyle = {
-  "backgroundColor": "#949494",
-  "cursor": "pointer",
-  "display": "flex",
-  "flex": 1,
+  backgroundColor: "#949494",
+  cursor: "pointer",
+  display: "flex",
+  flex: 1,
   // tslint:disable-next-line:object-literal-sort-keys
   "&:hover": {
-    backgroundColor: "#7d7d7d",
+    backgroundColor: "#7d7d7d"
   },
   "& > svg": {
-    margin: "auto",
-  },
+    margin: "auto"
+  }
 };
 
 export const carouselComponentStyles: StyleSheet<any> = {
   carouselContainer: {
     display: "flex",
-    flex: 6,
-    overflow: "hidden",
+    flex: 6
   },
   leftMove: {
-    ...carouselArrowStyle,
+    ...carouselArrowStyle
   },
   rightMove: {
-    ...carouselArrowStyle,
+    ...carouselArrowStyle
   },
   root: {
     display: "flex",
-    width: 500,
-  },
+    width: 500
+  }
 };

@@ -6,12 +6,18 @@ import SingleElement from "./SingleElement";
 import { carouselComponentStyles } from "./styles";
 import { ICarouselData } from "./AppBar";
 import { carouselElemHeight, carouselElemWidth } from "./singleElemStyles";
-import { ISliderChildStyles, Slider, ISliderDirection } from "react-animation-suite";
+import {
+  ISliderChildStyles,
+  Slider,
+  ISliderDirection
+} from "react-animation-suite";
 
 const childStyles: ISliderChildStyles = {
   height: carouselElemHeight,
+  marginHorizontal: 2,
+  measureUnit: "em",
   transitionTime: 0.3,
-  width: carouselElemWidth,
+  width: carouselElemWidth
 };
 interface ISliderWithAnimationProps {
   dataArr: ICarouselData[];
@@ -28,8 +34,8 @@ class SliderWithAnimation extends React.Component<
   ISliderWithAnimationStates
 > {
   public state = {
-    direction: 0,
-    selectedIndex: 0,
+    direction: ISliderDirection.MoveRight,
+    selectedIndex: 0
   };
 
   public render() {
@@ -40,8 +46,10 @@ class SliderWithAnimation extends React.Component<
       classes: null,
       imageUrl: currData.imageUrl,
       text: currData.text,
-      title: currData.title,
+      title: currData.title
     };
+    // tslint:disable-next-line:no-console
+    console.log("current data id is: ", currData.id);
     return (
       <div className={classes.root}>
         <div className={classes.leftMove} onClick={this.slideLeftClick}>
@@ -75,9 +83,9 @@ class SliderWithAnimation extends React.Component<
     }
     this.setState({
       direction: ISliderDirection.MoveRight,
-      selectedIndex,
+      selectedIndex
     });
-  }
+  };
 
   private slideRightClick = () => {
     let { selectedIndex } = this.state;
@@ -91,9 +99,9 @@ class SliderWithAnimation extends React.Component<
     }
     this.setState({
       direction: ISliderDirection.MoveLeft,
-      selectedIndex,
+      selectedIndex
     });
-  }
+  };
 }
 
 export default injectSheet(carouselComponentStyles)(SliderWithAnimation);

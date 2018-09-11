@@ -9,7 +9,7 @@ import Tabs from "@material-ui/core/Tabs";
 import { appBarStyles } from "./styles";
 
 export interface ICarouselData {
-  id: number;
+  id: number | string | boolean;
   imageUrl: string;
   text: string;
   title: string;
@@ -17,26 +17,26 @@ export interface ICarouselData {
 
 const carouselDataArr: ICarouselData[] = [
   {
-    id: 1,
+    id: 0,
     imageUrl:
       "https://images.pexels.com/photos/257360/pexels-photo-257360.jpeg?auto=compress&cs=tinysrgb&h=350",
     text: "Relax in the beauty",
-    title: "The Seat",
+    title: "The Seat"
   },
   {
-    id: 2,
+    id: "23",
     imageUrl:
       "https://images.pexels.com/photos/236047/pexels-photo-236047.jpeg?auto=compress&cs=tinysrgb&h=350",
     text: "Feel the freedom",
-    title: "The Farm",
+    title: "The Farm"
   },
   {
-    id: 3,
+    id: false,
     imageUrl:
       "https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
     text: "Railway track through peaceful trees",
-    title: "The Track",
-  },
+    title: "The Track"
+  }
 ];
 
 type TabValuesType = "withAnimation" | "withoutAnimation";
@@ -56,7 +56,7 @@ class CarouselTabs extends React.Component<
   constructor(props: ICarouselTabsProps) {
     super(props);
     this.state = {
-      value: "withoutAnimation",
+      value: "withoutAnimation"
     };
   }
 
@@ -84,15 +84,15 @@ class CarouselTabs extends React.Component<
 
   private handleChange = (event: React.KeyboardEvent, value: TabValuesType) => {
     this.setState({ value });
-  }
+  };
 
   private renderSliderWithoutAnimation = (): JSX.Element => {
     return <SliderWithoutAnimation dataArr={carouselDataArr} classes={null} />;
-  }
+  };
 
   private renderSliderWithAnimation = (): JSX.Element => {
     return <SliderWithAnimation dataArr={carouselDataArr} classes={null} />;
-  }
+  };
 
   private renderTabContainerChild = (): JSX.Element | null => {
     if (this.state.value === "withoutAnimation") {
@@ -102,7 +102,7 @@ class CarouselTabs extends React.Component<
     } else {
       return null;
     }
-  }
+  };
 }
 
 export default injectSheet(appBarStyles)(CarouselTabs);
