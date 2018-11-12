@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { AppBar } from "./slider/index";
 
 class App extends React.Component<any> {
@@ -7,6 +7,12 @@ class App extends React.Component<any> {
     return (
       <Router>
         <div>
+          <ul>
+            <li>
+              <Link to="/slider">Slider</Link>
+            </li>
+          </ul>
+          <hr />
           <Route path="/slider" component={AppBar} />
         </div>
       </Router>
